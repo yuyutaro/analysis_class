@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class Client {
 	private final static String HOST_NAME = "db";
-	private final static String DATABASE_NAME = "sample";
+	private final static String DATABASE_NAME = "analysis_class";
 	private final static String USER_NAME = "root";
 	private final static String PASSWORD = "root";
 	private final static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
