@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>トップ画面</title>
+    <title>新規登録画面</title>
 </head>
 <body>
-    <h1>ここはログイン画面です</h1>
+    <h1>ここは新規登録画面です</h1>
     <form action="/user/signup" method="post">
         <ul>
             <li><p>氏名</p><input type="text" name="name" placeholder="氏名" required /></li>

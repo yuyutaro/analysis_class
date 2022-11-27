@@ -33,4 +33,10 @@ public class User extends Default {
     public void insertUser(){
         Repository.insertUser(this);
     }
+
+//controller/User/Login.javaからの呼び出し
+    public User selectUserByEmail(String email){
+        User currentUser = Repository.selectUserByEmail(email);
+        return currentUser;
+    } 
 }
