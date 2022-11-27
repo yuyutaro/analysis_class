@@ -4,7 +4,8 @@
     <title>トップ画面</title>
 </head>
 <body>
-    <p>ようこそ〇〇〇〇へ</p>
-    <p>ユーザー登録は<a href="/user/signup">こちら</a></p>
+    <p>ようこそ模擬授業分析システムへ</p>
+    <p>ユーザー新規登録は<a href="/user/signup">こちら</a></p>
+    <p>ユーザーログインは<a href="/user/login">こちら</a></p>
 </body>
 </html>
