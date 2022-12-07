@@ -1,6 +1,7 @@
 package model.tweet;
 import model.Default;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 public class Tweet extends Default {
     private String content;
     // TweetはUserのIdを外部キーに持つのでusersIdとしてクラス変数を定義しておく
@@ -26,5 +27,9 @@ public class Tweet extends Default {
     // Tweet登録用のメソッド
     public void insertTweet(){
         Repository.insertTweet(this);
+    }
+    // Tweet一覧を取得する
+    public static ArrayList<Tweet> indexTweets() {
+        return Repository.indexTweets();
     }
 }
