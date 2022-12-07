@@ -5,6 +5,7 @@
 </head>
 <body>
     <p>ログイン成功</p>
-    <p><a href="/tweet/post">ツイートする</a></p>
+    <p><button onclick="location.href='/tweet/post'">ツイートする</button></p>
+    <p><button onclick="location.href='/tweet/index'">ツイート一覧</button></p>
 </body>
 </html>
