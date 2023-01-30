@@ -62,4 +62,30 @@ public class Repository extends Client {
             close(connection, stmt, rs);
         } 
     }
+    public static void updateUser(User user) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            //SQL文の用意
+            String sql = "update users set "+
+                    "name=?, email=?, password=?, updated_at=? where id=?";
+            connection = createConnection();
+            Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassWord());
+            stmt.setTimestamp(4, currentTime);
+            stmt.setInt(5, user.getId());
+            stmt.executeUpdate();
+            return;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return;
+        } finally {
+            close(connection, stmt, rs);
+        }
+    }
 }

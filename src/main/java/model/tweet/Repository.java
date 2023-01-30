@@ -35,7 +35,6 @@ public class Repository extends Client {
     }
     public static ArrayList<Tweet> indexTweets() {
         Connection connection = null;
-        PreparedStatement stmt = null;
         ResultSet rs = null;
         
         try {
@@ -62,7 +61,20 @@ public class Repository extends Client {
             e.printStackTrace();
             return null;
         } finally {
-            close(connection, stmt, rs);
+            close(connection, null, rs);
+        } 
+    }
+    public static void deleteTweet(String id) {
+        Connection connection = null;
+        try {
+            //SQL文の用意
+            String sql = "delete from tweets where id = " + id;
+            createConnection().createStatement().executeUpdate(sql);
+            
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(connection, null, null);
         } 
     }
 }

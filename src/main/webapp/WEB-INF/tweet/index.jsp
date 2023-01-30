@@ -10,6 +10,7 @@
             <p>id: ${tweet.getId()}</p>
             <p>${tweet.getContent()}</p>
             <p>users_id: ${tweet.getUsersId()}</p>
+            <button onclick="location.href='/tweet/delete?id=${tweet.getId()}'">削除</button>
         </div>
     </c:forEach>
     <p><button onclick="location.href='/tweet/post'">ツイートする</button></p>

@@ -7,5 +7,6 @@
     <p>ログイン成功</p>
     <p><button onclick="location.href='/tweet/post'">ツイートする</button></p>
     <p><button onclick="location.href='/tweet/index'">ツイート一覧</button></p>
+    <p><button onclick="location.href='/user/update'">ユーザー情報更新</button></p>
 </body>
 </html>
