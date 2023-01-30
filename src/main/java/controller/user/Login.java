@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.user.User;
 @WebServlet("/user/login")
 public class Login extends HttpServlet {
@@ -30,21 +29,13 @@ public class Login extends HttpServlet {
                 null,
                 null
         );
-        User currentUser = user.selectUserByEmail(email);
-        if (currentUser != null) {
-            if (currentUser.getPassWord().equals(user.getPassWord())) { //currentUserはemailをもとに持ってきたUser情報．userは入力したUser情報
-                //セッションスコープにインスタンスを保存
-                //"currnetUser"という名前でcurrentUserインスタンスを保存
-                HttpSession session = request.getSession();
-                session.setAttribute("currentUser", currentUser);
-                System.out.println("ログイン成功");
-            } else {
-                System.out.println("ログイン失敗");
-            }
+        if (user.authenticateUser(request)) {   //ログインが成功したら
+            response.sendRedirect("/user/mypage");
         } else {
-            System.out.println("ユーザー情報は見当たりませんでした");
+            //ログインが失敗したらフォワード
+            request.setAttribute("couldNotSignIn", true);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/user/login.jsp");
+            dispatcher.forward(request, response);
         }
-        //登録が完了したらログイン画面にリダイレクト
-        response.sendRedirect("/user/mypage");
     }
 }

@@ -32,4 +32,8 @@ public class Tweet extends Default {
     public static ArrayList<Tweet> indexTweets() {
         return Repository.indexTweets();
     }
+    // Tweetを削除する
+    public static void deleteTweet(String id) {
+        Repository.deleteTweet(id);
+    }
 }
